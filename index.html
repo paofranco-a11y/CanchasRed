@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CanchasRed</title>
+    <link rel="stylesheet" href="css/estilos.css">  
+</head>
+<body>
+   <header  class="barra-superior"> 
+    <div clas="logo">
+        <span class="icono-balon"></span>
+        <strong class="nombre-sitio">CanChas</strong>
+    </div>
+
+    <div class="menu-enlaces">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </div>
+
+    <div class="accesos-usuario">
+        <a href="login.html" class="enlace-ingreso">Iniciar sesión</a>
+    </div>
+   </header>  
+
+   <section class="">
+        <div class="contenido-centrado">
+            <h1 class="titulo-portada">Encuentra tu Cancha</h1>
+            <p class="subtitulo-portada">Descubre las mejores canchas de deporte en tu área.</p>
+
+            <div class="caja-busqueda">
+                <span class="icono-busqueda"></span>
+                <input type="text" placeholder="Buscar canchas por ubicación o deporte">
+            </div>
+        </div>
+   </section>
+
+<nav class="barra-filtros" aria-label="Filtros por deporte">
+
+    <button type="button" class="boton-filtro activo">Todos</button>
+    <button type="button" class="boton-filtro">Fútbol</button>
+    <button type="button" class="boton-filtro">Tenis</button>
+    <button type="button" class="boton-filtro">Basquetbol</button>
+    <button type="button" class="boton-filtro">Vóleibol</button>
+    <button type="button" class="boton-filtro">Pádel</button>
+  </nav>   
+
+<main class="seccion-catalogo">
+    <p class="contador-canchas">Cancha disponible</p>
+    <article class="tarjeta-cancha">
+        <div class="tarjeta-foto-bloque">
+          <!-- Etiqueta verde pequeña que indica el deporte -->
+          <span class="etiqueta-deporte">Tenis</span>
+          <!-- Imagen de la cancha; 'alt' describe la imagen  -->
+          <img src="img/canchaTenis.png" alt="Foto de Cancha Central Norte" class="imagen-cancha">
+        </div>
+
+    <div class="tarjeta-informacion">
+            <h2 class="nombre-cancha">Cancha Central Norte</h2>
+            <p class="comuna-cancha">Ñuñoa</p><!--ubi de la cancha--> 
+            <p class="descripcion-cancha">
+            Cancha de pasto sintético con iluminación nocturna. Capacidad para 1...
+          </p>
+
+          <div class="tarjeta-fila-compra">
+          <span class="precio-hora"><strong>$7.000</strong> /hora</span>
+          <a href="detalle-cancha.html" class="boton-reservar">Reservar</a><!--ir a vista individual-->  
+        </div>
+    </div>
+
+</article>
+</main>
+
+<footer class="pie-pagina">
+    <!-- Texto con autoras del encargo DSY1104 Duoc UC -->
+    <p class="texto-creditos">&copy; 2026 CanchasRed - Paola Franco & Alejandra Ruiz. Todos los derechos reservados.</p>
+
+    <!-- Repetición de enlaces secundarios requeridos por pauta -->
+    <div class="enlaces-secundarios">
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+  </footer>
+
+</body>
+</html>
