@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+<header class="barra-superior"> 
+    <div class="logo">
+        <span class="icono-balon">⚽</span>
+        <strong class="nombre-sitio">Nosotros</strong>
+    </div>
+    <nav class="menu-enlaces">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="blogs.html">Blog</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="accesos-usuario">
+        <a href="login.html" class="enlace-ingreso">Iniciar sesión</a>
+    </div>
+</header>
+
+<body>
+<main class="contenedor-autenticacion">
+        <div class="selector-roles">
+        
+        <label class="opcion-rol">
+            <input type="radio" name="rol" value="dueno" checked>
+            <div class="tarjeta-rol-info">
+                <span class="badge-rol">DC</span>
+                <strong>Dueño de Cancha</strong>
+                <small>Publica y gestiona recintos</small>
+            </div>
+            </label>
+
+            <label class="opcion-rol">
+            <input type="radio" name="rol" value="deportista">
+            <div class="tarjeta-rol-info">
+                <span class="badge-rol">DP</span>
+                <strong>Deportista</strong>
+                <small>Reserva canchas deportivas</small>
+            </div>
+        </label>
+        </div>
+        <form id="formularioRegistro" novalidate>
+        
+        <!-- Campo: Email -->
+        <div class="campo-formulario">
+            <label for="correo">Gmail</label>
+            <input type="email" id="correo" name="correo" placeholder="tucorreo@gmail.com" maxlength="100">
+            <span class="mensaje-error" id="errorCorreo"></span>
+            </div>
+
+            <!-- Campo: Contraseña -->
+            <div class="campo-formulario">
+            <label for="password">Contraseña</label>
+            <input type="password"  id="password"  name="password"  placeholder="••••••••">
+            <span class="mensaje-error" id="errorPassword"></span>
+            </div>
+
+            <!-- Campo: Confirmar contraseña -->
+            <div class="campo-formulario">
+            <label for="confirmPassword">Confirmar contraseña</label>
+            <input type="password"  id="confirmPassword" name="confirmPassword" placeholder="••••••••" >
+            <span class="mensaje-error" id="errorConfirmPassword"></span>
+            </div>
+
+            <!-- Botón de acción principal -->
+            <button type="submit" class="boton-primario-form">Crear Cuenta</button>
+        </form>
+    </section>
+</main> 
+<footer class="pie-pagina">
+    <p>&copy; 2026 CanchasRed - Paola Franco & Alejandra Ruiz. Todos los derechos reservados.</p>
+</footer> 
+</body>
+</html>
