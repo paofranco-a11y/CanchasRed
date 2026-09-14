@@ -1,0 +1,71 @@
+/* ===== estilos.css - Personalizaciones de CanchasRed ===== */
+/* Este archivo va DESPUÉS de styles.css para poder sobreescribirlo */
+
+/* Buscador del hero */
+
+.seccion-historia {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.seccion-historia h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #212529;
+}
+
+.seccion-historia p {
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #495057;
+  margin-bottom: 1.25rem;
+}
+
+.caja-busqueda {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Tarjetas de canchas */
+.tarjeta-cancha {
+  transition: transform 0.2s;
+}
+.tarjeta-cancha:hover {
+  transform: translateY(-5px);
+}
+
+.tarjeta-foto-bloque {
+  position: relative;
+}
+
+.etiqueta-deporte {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+}
+
+.imagen-cancha {
+  height: 200px;
+  object-fit: cover;
+}
+
+.nombre-cancha {
+  font-weight: 700;
+}
+
+.comuna-cancha {
+  font-size: 0.9rem;
+}
+
+.precio-hora {
+  font-size: 1.1rem;
+}
+
+/* Contador arriba del catálogo */
+.contador-canchas {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}

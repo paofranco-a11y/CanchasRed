@@ -4,56 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosotros</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Bootstrap + tema -->
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Tu propio CSS -->
+    <link href="css/styles2.css" rel="stylesheet" />
 </head>
 
-<header class="barra-superior"> 
-    <div class="logo">
-        <span class="icono-balon">⚽</span>
-        <strong class="nombre-sitio">Nosotros</strong>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="icono-balon">⚽</span> CanChas
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión / Registrarse</a></li>
+            </ul>
+        </div>
     </div>
-    <nav class="menu-enlaces">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="blogs.html">Blog</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <div class="accesos-usuario">
-        <a href="login.html" class="enlace-ingreso">Iniciar sesión</a>
+</nav>
+<header class="masthead masthead-2">
+    <div class="container contenido-centrado">
+        <div class="masthead-heading text-uppercase">De lo más pequeño a lo más grande</div>
+        <p class="masthead-subheading">Descubre las mejores canchas de deporte en tu área.</p>
     </div>
-
 </header>
 <body>
-    <main class="contenedor-nosotros">
-
-        <section class="seccion-intro">
-            <span class="subtitulo-destacado">De lo más pequeño a lo más grande</span>
-            <h1>Acompañamos a recintos deportivos en proyectos pensados para fortalecer su comunidad y experiencia en cancha</h1>
-            <p class="bajada-intro">
-                Conectamos a deportistas y administradores en una sola plataforma para hacer del deporte una experiencia accesible, organizada y sin fricciones.
-            </p>
-        </section>
-        
-        <section class="seccion-metricas">
-            <div class="tarjeta-metrica">
-                <span class="cifra-metrica">+40</span>
-                <p class="etiqueta-metrica">Complejos deportivos impulsados en todo Chile</p>
-            </div>
-
-            <div class="tarjeta-metrica">
-                <span class="cifra-metrica">+120</span>
-                <p class="etiqueta-metrica">Canchas activas con gestión y reservas automáticas</p>
-            </div>
-
-            <div class="tarjeta-metrica">
-                <span class="cifra-metrica">+7</span>
-                <p class="etiqueta-metrica">Años de experiencia integrando tecnología y deporte</p>
-            </div>
-        </section>
-        <section class="seccion-historia">
-            <img src="img/ImgNosotros2.jpg" alt="Foto de la cancha Central Norte" class="imagen-historia">
+    <section class="seccion-historia">
             <h2>Nacimos para ser el aliado estratégico de los recintos deportivos</h2>
             <p>
                 Surgimos con el propósito de resolver los problemas de comunicación en los centros deportivos, 
@@ -65,40 +50,121 @@
                 profundamente conectados entre sí. La disponibilidad de horarios, el cobro transparente, 
                 el mantenimiento de las instalaciones y la fidelización de los jugadores no podían abordarse de forma aislada.
             </p>
-            <p>
-                Por eso creamos <strong>CanchasRed</strong>: un ecosistema donde los dueños maximizan el uso de sus canchas 
-                y los deportistas encuentran su lugar ideal para jugar en cuestión de segundos.
-            </p>
-        </section>
-        <section class="seccion-equipo">
-            <h2>Equipo Fundador</h2>
-            <img src="img/ImgNosotros1.jpg" alt="Foto de la cancha Central Norte" class="imagen-historia">
-            <p class="bajada-equipo">Las desarrolladoras detrás de la plataforma CanchasRed:</p>
-
-            <div class="grilla-equipo">
-                <article class="tarjeta-miembro">
-                <div class="avatar-placeholder">PF</div>
-                <h3>Paola Franco</h3>
-                <p class="rol-miembro">Co-Fundadora & Desarrolladora Frontend</p>
-                </article>
-
-                <article class="tarjeta-miembro">
-                <div class="avatar-placeholder">AR</div>
-                <h3>Alejandra Ruiz</h3>
-                <p class="rol-miembro">Co-Fundadora & Desarrolladora Fullstack</p>
-                </article>
+        </section>    
+    <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Conectando la pasión del deporte con la tecnología en todo Chile</h2><br/>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>+40</h4>
+                                <h4 class="subheading">Complejos deportivos impulsados en todo Chile</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Conectamos recintos deportivos a lo largo de todo el país, modernizando su administración y visibilidad para que más jugadores encuentren su espacio ideal cada semana!</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>+120</h4>
+                                <h4 class="subheading">Canchas activas con gestión y reservas automáticas</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Digitalizamos el inventario de canchas en tiempo real, eliminando planillas manuales, cruces de horarios y cobros fallidos mediante reservas automáticas</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>+2</h4>
+                                <h4 class="subheading">Años de experiencia</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Acompañamos a dueños de complejos y deportistas amateurs en la evolución de su gestión, integrando tecnología práctica para hacer del arriendo deportivo un proceso rápido y transparente</p></div>
+                        </div>
+                    </li>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                Se parte
+                                <br />
+                                de nuestra
+                                <br />
+                                historia!
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+    </section>
+    <main class="contenedor-nosotros">
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Nuestro increíble equipo</h2>
+                    <h3 class="section-subheading text-muted">Un equipo que da todo por el éxito de nuestros clientes.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/portfolio/ImgNosotros1.jpg" alt="Foto de la cancha Central Norte" class="imagen-historia">
+                            <h4>Analistas de mercado</h4>
+                            <p class="text-muted">Diseño y Marketing</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Ana y Pau Arteaga Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Ana y Pau Arteaga Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Ana y Pau Arteaga LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/portfolio/ImgNosotros4.jpg" alt="..." />
+                            <h4>Paola Franco</h4>
+                            <p class="text-muted">Programadora Web</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Paola Franco Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Paola Franco Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Paola Franco LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/portfolio/ImgNosotros3.jpg" alt="..." />
+                            <h4>Alejandra Ruiz</h4>
+                            <p class="text-muted">Analista de Datos</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Alejandra Ruiz Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Alejandra Ruiz Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Alejandra Ruiz LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted"></p>Por eso creamos <strong>CanchasRed</strong>: un ecosistema donde los dueños maximizan el uso de sus canchas 
+                y los deportistas encuentran su lugar ideal para jugar en cuestión de segundos..</p></div>
+                </div>
             </div>
         </section>
     </main>    
-        <footer class="pie-pagina">
-        <!-- Texto con autoras del encargo DSY1104 Duoc UC -->
-        <p class="texto-creditos">&copy; 2026 CanchasRed - Paola Franco & Alejandra Ruiz. Todos los derechos reservados.</p>
-
-        <!-- Repetición de enlaces secundarios requeridos por pauta -->
-        <div class="enlaces-secundarios">
-        <a href="nosotros.html">Nosotros</a>
-        <a href="contacto.html">Contacto</a>
-        </div>
-    </footer>
+    <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; CanchasRed 2024</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="index.html" class="link-dark text-decoration-none me-3">Inicio</a>
+                        <a href="nosotros.html" class="link-dark text-decoration-none me-3">Nosotros</a>
+                        <a href="contacto.html" class="link-dark text-decoration-none me-3">Contacto</a>
+                        <a href="blogs.html" class="link-dark text-decoration-none me-3">Blog</a>
+                    </div>
+                </div>
+            </div>
+    </footer> 
 </body>
 </html>

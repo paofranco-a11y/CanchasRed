@@ -1,91 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>CanchasRed</title>
-    <link rel="stylesheet" href="css/estilos.css">  
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Bootstrap + tema (ya trae el CSS de Bootstrap adentro) -->
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- mi propio css para poder sobreescribirlo -->
+    <link href="css/styles2.css" rel="stylesheet" />
 </head>
-<body>
-<header class="barra-superior"> 
-    <div class="logo">
-        <span class="icono-balon">⚽</span>
-        <strong class="nombre-sitio">CanChas</strong>
-    </div>
+<body id="page-top">
 
-    <nav class="menu-enlaces">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="blogs.html">Blogs</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <div class="accesos-usuario">
-        <a href="login.html" class="enlace-ingreso">Iniciar sesión o Registrarse</a>
-    </div>
-
-</header>
-
-   <section class="">
-        <div class="contenido-centrado">
-            <h1 class="titulo-portada">Encuentra tu Cancha</h1>
-            <p class="subtitulo-portada">Descubre las mejores canchas de deporte en tu área.</p>
-
-            <div class="caja-busqueda">
-                <span class="icono-busqueda"></span>
-                <input type="text" placeholder="Buscar canchas por ubicación o deporte">
+    <!-- Nav: uso navbar de Bootstrap (responsive con botón hamburguesa) pero tus links reales -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="icono-balon">⚽</span> CanChas
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión / Registrarse</a></li>
+                </ul>
             </div>
         </div>
-   </section>
+    </nav>
 
-<nav class="barra-filtros" aria-label="Filtros por deporte">
+    <!-- Hero: masthead de Bootstrap (ya trae fondo, tipografía grande) con tu texto -->
+    <header class="masthead">
+        <div class="container contenido-centrado">
+            <div class="masthead-heading text-uppercase">Encuentra tu Cancha</div>
+            <p class="masthead-subheading">Descubre las mejores canchas de deporte en tu área.</p>
 
-    <button type="button" class="boton-filtro activo">Todos</button>
-    <button type="button" class="boton-filtro">Fútbol</button>
-    <button type="button" class="boton-filtro">Tenis</button>
-    <button type="button" class="boton-filtro">Basquetbol</button>
-    <button type="button" class="boton-filtro">Vóleibol</button>
-    <button type="button" class="boton-filtro">Pádel</button>
-  </nav>   
-
-<main class="seccion-catalogo">
-    <p class="contador-canchas">Cancha disponible</p>
-    <article class="tarjeta-cancha">
-        <div class="tarjeta-foto-bloque">
-          <!-- Etiqueta verde pequeña que indica el deporte -->
-          <span class="etiqueta-deporte">Tenis</span>
-          <!-- Imagen de la cancha; 'alt' describe la imagen  -->
-          <img src="img/canchaTenis.png" alt="Foto de Cancha Central Norte" class="imagen-cancha">
+            <!-- Tu buscador propio, no viene de Bootstrap -->
+            <div class="caja-busqueda">
+                <input type="text" class="form-control" placeholder="Buscar canchas por ubicación o deporte" />
+            </div>
         </div>
+    </header>
 
-    <div class="tarjeta-informacion">
-            <h2 class="nombre-cancha">Cancha Central Norte</h2>
-            <p class="comuna-cancha">Ñuñoa</p><!--ubi de la cancha--> 
-            <p class="descripcion-cancha">
-            Cancha de pasto sintético con iluminación nocturna. Capacidad para 1...
-          </p>
-
-          <div class="tarjeta-fila-compra">
-          <span class="precio-hora"><strong>$7.000</strong> /hora</span>
-          <a href="detalle-cancha.html" class="boton-reservar">Reservar</a><!--ir a vista individual-->  
+    <!-- Filtros: uso botones de Bootstrap (btn, btn-outline-primary) en vez de tu clase boton-filtro sola -->
+    <nav class="barra-filtros text-center py-3" aria-label="Filtros por deporte">
+        <div class="container">
+            <button type="button" class="btn btn-primary me-2 mb-2">Todos</button>
+            <button type="button" class="btn btn-outline-primary me-2 mb-2">Fútbol</button>
+            <button type="button" class="btn btn-outline-primary me-2 mb-2">Tenis</button>
+            <button type="button" class="btn btn-outline-primary me-2 mb-2">Basquetbol</button>
+            <button type="button" class="btn btn-outline-primary me-2 mb-2">Vóleibol</button>
+            <button type="button" class="btn btn-outline-primary mb-2">Pádel</button>
         </div>
-    </div>
+    </nav>
 
-</article>
-</main>
+    <!-- Catálogo: uso el grid de Bootstrap (row / col-md-4) igual que "portfolio", pero con tus tarjetas reales -->
+    <main class="page-section" id="catalogo">
+        <div class="container">
+            <p class="contador-canchas">Cancha disponible</p>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <article class="card tarjeta-cancha h-100">
+                        <div class="tarjeta-foto-bloque">
+                            <span class="badge bg-success etiqueta-deporte">Tenis</span>
+                            <img src="assets/img/portfolio/canchaTenis.png" alt="Foto de Cancha Central Norte" class="card-img-top imagen-cancha"/>
+                        </div>
+                        <div class="card-body tarjeta-informacion">
+                            <h2 class="card-title nombre-cancha h5">Cancha Central Norte</h2>
+                            <p class="comuna-cancha text-muted">Ñuñoa</p>
+                            <p class="card-text descripcion-cancha">
+                                Cancha de pasto sintético con iluminación nocturna. Capacidad para 10 personas.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="precio-hora"><strong>$7.000</strong> /hora</span>
+                                <a href="detalle-cancha.html" class="btn btn-primary btn-sm">Reservar</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <!-- Repite este bloque col-lg-4 por cada cancha adicional -->
+            </div>
+        </div>
+    </main>
 
-<footer class="pie-pagina">
-    <!-- Texto con autoras del encargo DSY1104 Duoc UC -->
-    <p class="texto-creditos">&copy; 2026 CanchasRed - Paola Franco & Alejandra Ruiz. Todos los derechos reservados.</p>
-
-    <!-- Repetición de enlaces secundarios requeridos por pauta -->
-    <div class="enlaces-secundarios">
-      <a href="nosotros.html">Nosotros</a>
-      <a href="contacto.html">Contacto</a>
-    </div>
-  </footer>
-
+    <!-- Footer: estructura de Bootstrap con tus créditos reales -->
+    <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; CanchasRed 2024</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="index.html" class="link-dark text-decoration-none me-3">Inicio</a>
+                        <a href="nosotros.html" class="link-dark text-decoration-none me-3">Nosotros</a>
+                        <a href="contacto.html" class="link-dark text-decoration-none me-3">Contacto</a>
+                        <a href="blogs.html" class="link-dark text-decoration-none me-3">Blog</a>
+                    </div>
+                </div>
+            </div>
+    </footer> 
+    <!-- JS de Bootstrap (menú, componentes) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- Tu propio JS -->
+    <script src="js/validaciones.js"></script>
 </body>
 </html>
