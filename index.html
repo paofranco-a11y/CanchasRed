@@ -23,12 +23,18 @@
                 Menu <i class="fas fa-bars ms-1"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0" id="menuInvitado">
                     <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
                     <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión / Registrarse</a></li>
+                </ul>
+
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 d-none" id="menuUsuario">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mis-reservas.html">Mis Reservas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="btnCerrarSesion">Salir</a></li>
                 </ul>
             </div>
         </div>
@@ -148,5 +154,7 @@
     <script src="js/scripts.js"></script>
     <!-- mi JS -->
     <script src="js/validaciones.js"></script>
+    <!-- para validar autenticacion -->
+    <script src="js/auth.js"></script>
 </body>
 </html>

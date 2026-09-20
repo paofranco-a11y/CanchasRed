@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dueño CanchasRed</title>
+    <link rel="icon" type="image/svg+xml" href="assets/img/logos/LogoCancha.svg" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/styles2.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="perfil-dueno.html">
+    <img src="assets/img/logos/LogoCancha.svg" alt="Logo CanchasRed" class="logo-navbar" /> CanchasRed
+    </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+            Menu <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="perfil-dueno.html">Mi Perfil</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" id="btnCerrarSesion">Salir</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container" style="padding-top: 8rem; padding-bottom: 4rem;">
+
+    <h1 class="mb-4">Perfil Dueño de Cancha</h1>
+
+    <ul class="nav nav-pills mb-4">
+        <li class="nav-item">
+            <button class="nav-link active" id="tabMisCanchas" onclick="mostrarSeccion('lista')">Mis Canchas</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" id="tabAgregar" onclick="mostrarSeccion('form')">Agregar Cancha</button>
+        </li>
+    </ul>
+
+    <!-- Sección: Mis Canchas -->
+    <section id="seccionLista">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <h4 class="mb-0">Mis Canchas</h4>
+                <small class="text-muted">Listado de tus publicaciones</small>
+            </div>
+            <button class="btn btn-dark" onclick="nuevaCancha()">+ Nueva Cancha</button>
+        </div>
+
+        <div id="listaCanchas" class="list-group"></div>
+        <p id="listaVacia" class="text-muted text-center py-4 d-none">Aún no tienes canchas publicadas.</p>
+    </section>
+
+    <!-- Sección: Agregar / Editar Cancha -->
+    <section id="seccionForm" class="d-none">
+        <h4 id="tituloForm">Agregar Cancha</h4>
+        <small class="text-muted" id="subtituloForm">Completa los datos para publicar tu cancha</small>
+
+        <form id="formCancha" class="mt-4" novalidate>
+            <input type="hidden" id="canchaId" />
+
+            <div class="mb-3">
+                <label class="form-label">Nombre de la cancha</label>
+                <input type="text" class="form-control" id="nombreCancha" placeholder="Ej: Cancha Central Norte" data-required="true">
+                <div class="invalid-feedback">Ingresa el nombre de la cancha.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Tipo de deporte</label>
+                <select class="form-select" id="deporteCancha" data-required="true">
+                    <option value="">Seleccionar deporte...</option>
+                    <option value="Fútbol">Fútbol</option>
+                    <option value="Tenis">Tenis</option>
+                    <option value="Basquetbol">Basquetbol</option>
+                    <option value="Vóleibol">Vóleibol</option>
+                    <option value="Pádel">Pádel</option>
+                </select>
+                <div class="invalid-feedback">Selecciona un deporte.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Comuna</label>
+                <select class="form-select" id="comunaCancha" data-required="true">
+                    <option value="">Seleccionar comuna...</option>
+                    <option value="Ñuñoa">Ñuñoa</option>
+                    <option value="Providencia">Providencia</option>
+                    <option value="San Miguel">San Miguel</option>
+                    <option value="Las Condes">Las Condes</option>
+                    <option value="La Florida">La Florida</option>
+                </select>
+                <div class="invalid-feedback">Selecciona una comuna.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Precio por hora ($)</label>
+                <input type="number" class="form-control" id="precioCancha" placeholder="0" data-required="true">
+                <div class="invalid-feedback">El precio debe ser mayor a $1.000 y menor a $100.000.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Descripción</label>
+                <textarea class="form-control" id="descripcionCancha" rows="3" placeholder="Describe tu cancha..." data-required="true" maxlength="500"></textarea>
+                <div class="invalid-feedback">La descripción no puede superar los 500 caracteres.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Imagen</label>
+                <input type="file" class="form-control" id="imagenCancha" accept="image/png, image/jpeg">
+                <small class="text-muted">PNG, JPG hasta 5MB</small>
+            </div>
+
+            <div class="form-check form-switch mb-4">
+                <input class="form-check-input" type="checkbox" id="disponibleCancha" checked>
+                <label class="form-check-label" for="disponibleCancha">Disponible</label>
+            </div>
+
+            <button type="submit" class="btn btn-dark" id="btnGuardarCancha">Publicar</button>
+            <a href="#" id="btnCancelarForm" class="ms-3 d-none" onclick="mostrarSeccion('lista'); return false;">Cancelar</a>
+        </form>
+    </section>
+
+</main>
+
+<!-- Modal confirmar eliminación -->
+<div class="modal fade" id="modalEliminar" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-1">Cancha a eliminar:</p>
+                <p class="fw-bold" id="nombreCanchaEliminar"></p>
+                <p>¿Estás seguro que deseas eliminar esta cancha? Esta acción no se puede deshacer.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-dark" id="btnConfirmarEliminar">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer py-4">
+    <div class="container text-center">
+        Copyright &copy; CanchasRed 2024
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/validaciones.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/dueno.js"></script>
+</body>
+</html>
