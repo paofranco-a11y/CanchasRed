@@ -1,4 +1,5 @@
-/* Validación de formularios con JavaScript — en tiempo real */
+
+//validacion para los formularios de contacto y mini contacto
 
 const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const regexTelefono = /^[0-9+\s]{7,15}$/;
@@ -15,7 +16,7 @@ function limpiarError(campo) {
     campo.classList.remove('is-invalid');
 }
 
-// Revisa un campo y devuelve true/false según si es válido
+// Revisa un campo y devuelve true/false según si es valido
 function validarCampo(campo) {
     const valor = campo.value.trim();
     const tipo = campo.getAttribute('data-type') || campo.type;
@@ -39,7 +40,7 @@ function validarCampo(campo) {
     return true;
 }
 
-// Aplica la validación (en tiempo real + al enviar) a cada formulario con clase "form-validar"
+// Aplica la validacion (en tiempo real + al enviar) a cada formulario con clase "form-validar"
 document.querySelectorAll('.form-validar').forEach(function (form) {
     const campos = form.querySelectorAll('[data-required="true"]');
 
@@ -73,3 +74,4 @@ document.querySelectorAll('.form-validar').forEach(function (form) {
         }
     });
 });
+

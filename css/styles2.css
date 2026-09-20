@@ -69,3 +69,157 @@
   font-weight: 600;
   margin-bottom: 1rem;
 }
+
+
+/*  Registro / Login */
+.contenedor-autenticacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 6rem 1rem 2rem;
+}
+
+.tarjeta-registro {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 420px;
+  width: 100%;
+}
+
+.titulo-registro {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.subtitulo-registro {
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* Selector de rol (tarjetas lado a lado) */
+.selector-roles {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.opcion-rol {
+  flex: 1;
+  cursor: pointer;
+}
+
+.opcion-rol input[type="radio"] {
+  display: none; 
+}
+
+.tarjeta-rol-info {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.opcion-rol input[type="radio"]:checked + .tarjeta-rol-info {
+  border-color: #ffc800;
+  background-color: #fff8e1;
+}
+
+.badge-rol {
+  display: inline-block;
+  border: 1px solid #212529;
+  border-radius: 4px;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.tarjeta-rol-info strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.tarjeta-rol-info small {
+  color: #6c757d;
+  font-size: 0.75rem;
+}
+
+/* Campos del formulario */
+.campo-formulario {
+  margin-bottom: 1rem;
+}
+
+.campo-formulario label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #495057;
+}
+
+.campo-formulario input {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+}
+
+.campo-formulario input.is-invalid {
+  border-color: #dc3545;
+}
+
+.mensaje-error {
+  color: #dc3545;
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+/* Botón negro estilo mockup */
+.boton-primario-form {
+  width: 100%;
+  background-color: #212529;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.boton-primario-form:hover {
+  background-color: #000;
+}
+
+.enlace-alternativo {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 1.25rem;
+  color: #6c757d;
+}  
+
+
+/* imagenes de blog */
+.imagen-cancha-detalle {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin: 1.5rem auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.logo-navbar {
+  height: 10px;
+  width: 120px;
+  margin-right: 0.3rem;
+}

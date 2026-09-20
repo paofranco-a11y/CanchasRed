@@ -6,18 +6,18 @@
     <title>CanchasRed</title>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-    <!-- Bootstrap + tema (ya trae el CSS de Bootstrap adentro) -->
+    <!-- Bootstrap ) -->
     <link href="css/styles.css" rel="stylesheet" />
     <!-- mi propio css para poder sobreescribirlo -->
     <link href="css/styles2.css" rel="stylesheet" />
 </head>
 <body id="page-top">
 
-    <!-- Nav: uso navbar de Bootstrap (responsive con botón hamburguesa) pero tus links reales -->
+    <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <span class="icono-balon">⚽</span> CanChas
+                <img src="assets/img/logos/LogoCancha.svg" alt="Logo CanchasRed" class="logo-navbar" /> CanchasRed
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu <i class="fas fa-bars ms-1"></i>
@@ -33,21 +33,20 @@
             </div>
         </div>
     </nav>
-
-    <!-- Hero: masthead de Bootstrap (ya trae fondo, tipografía grande) con tu texto -->
+    <!-- Hero: masthead -->
     <header class="masthead">
         <div class="container contenido-centrado">
             <div class="masthead-heading text-uppercase">Encuentra tu Cancha</div>
             <p class="masthead-subheading">Descubre las mejores canchas de deporte en tu área.</p>
 
-            <!-- Tu buscador propio, no viene de Bootstrap -->
+             <!-- Buscador -->
             <div class="caja-busqueda">
                 <input type="text" class="form-control" placeholder="Buscar canchas por ubicación o deporte" />
             </div>
         </div>
     </header>
 
-    <!-- Filtros: uso botones de Bootstrap (btn, btn-outline-primary) en vez de tu clase boton-filtro sola -->
+    <!--  Bootstrap (btn, btn-outline-primary)-->
     <nav class="barra-filtros text-center py-3" aria-label="Filtros por deporte">
         <div class="container">
             <button type="button" class="btn btn-primary me-2 mb-2">Todos</button>
@@ -59,7 +58,7 @@
         </div>
     </nav>
 
-    <!-- Catálogo: uso el grid de Bootstrap (row / col-md-4) igual que "portfolio", pero con tus tarjetas reales -->
+    <!-- Catalogo  -->
     <main class="page-section" id="catalogo">
         <div class="container">
             <p class="contador-canchas">Cancha disponible</p>
@@ -88,7 +87,7 @@
         </div>
     </main>
 
-<!-- Mini contacto en el index -->
+<!-- Mini contacto -->
 <section class="page-section bg-dark text-white" id="mini-contacto">
     <div class="container">
         <div class="text-center mb-4">
@@ -125,7 +124,7 @@
         </div>
     </div>
 </section>
-    <!-- Footer: estructura de Bootstrap con tus créditos reales -->
+    <!-- Footer -->
     <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
@@ -144,10 +143,10 @@
                 </div>
             </div>
     </footer> 
-    <!-- JS de Bootstrap (menú, componentes) -->
+    <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
-    <!-- Tu propio JS -->
+    <!-- mi JS -->
     <script src="js/validaciones.js"></script>
 </body>
 </html>

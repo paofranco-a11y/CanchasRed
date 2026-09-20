@@ -1,81 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
+    <title>Iniciar sesión - CanchasRed</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/styles2.css" rel="stylesheet" />
 </head>
-<header class="barra-superior"> 
-    <div class="logo">
-        <span class="icono-balon">⚽</span>
-        <strong class="nombre-sitio">Nosotros</strong>
-    </div>
-    <nav class="menu-enlaces">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="blogs.html">Blog</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
+<body id="page-top">
 
-    <div class="accesos-usuario">
-        <a href="login.html" class="enlace-ingreso">Iniciar sesión</a>
-    </div>
-</header>
-
-<body>
-<main class="contenedor-autenticacion">
-        <div class="selector-roles">
-        
-        <label class="opcion-rol">
-            <input type="radio" name="rol" value="dueno" checked>
-            <div class="tarjeta-rol-info">
-                <span class="badge-rol">DC</span>
-                <strong>Dueño de Cancha</strong>
-                <small>Publica y gestiona recintos</small>
-            </div>
-            </label>
-
-            <label class="opcion-rol">
-            <input type="radio" name="rol" value="deportista">
-            <div class="tarjeta-rol-info">
-                <span class="badge-rol">DP</span>
-                <strong>Deportista</strong>
-                <small>Reserva canchas deportivas</small>
-            </div>
-        </label>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+        <img src="assets/img/logos/LogoCancha.svg" alt="Logo CanchasRed" class="logo-navbar" /> CanchasRed</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión / Registrarse</a></li>
+            </ul>
         </div>
-        <form id="formularioRegistro" novalidate>
-        
-        <!-- Campo: Email -->
-        <div class="campo-formulario">
-            <label for="correo">Gmail</label>
-            <input type="email" id="correo" name="correo" placeholder="tucorreo@gmail.com" maxlength="100">
-            <span class="mensaje-error" id="errorCorreo"></span>
-            </div>
+    </div>
+</nav>
 
-            <!-- Campo: Contraseña -->
+<main class="contenedor-autenticacion">
+    <div class="tarjeta-registro">
+        <h1 class="titulo-registro">Inicia sesión</h1>
+        <p class="subtitulo-registro">Ingresa tus datos para continuar</p>
+
+        <form id="formularioLogin" class="form-validar" novalidate>
             <div class="campo-formulario">
-            <label for="password">Contraseña</label>
-            <input type="password"  id="password"  name="password"  placeholder="••••••••">
-            <span class="mensaje-error" id="errorPassword"></span>
+                <label for="correoLogin">Correo electrónico</label>
+                <input type="email" id="correoLogin" name="correoLogin" placeholder="tucorreo@gmail.com" data-required="true" data-type="email">
+                <span class="mensaje-error" id="errorCorreoLogin"></span>
             </div>
 
-            <!-- Campo: Confirmar contraseña -->
             <div class="campo-formulario">
-            <label for="confirmPassword">Confirmar contraseña</label>
-            <input type="password"  id="confirmPassword" name="confirmPassword" placeholder="••••••••" >
-            <span class="mensaje-error" id="errorConfirmPassword"></span>
+                <label for="passwordLogin">Contraseña</label>
+                <input type="password" id="passwordLogin" name="passwordLogin" placeholder="••••••••" data-required="true">
+                <span class="mensaje-error" id="errorPasswordLogin"></span>
             </div>
 
-            <!-- Botón de acción principal -->
-            <button type="submit" class="boton-primario-form">Crear Cuenta</button>
+            <button type="submit" class="boton-primario-form">Iniciar sesión</button>
         </form>
-    </section>
-</main> 
+
+        <p class="enlace-alternativo">¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
+    </div>
+</main>
+
 <footer class="pie-pagina">
-    <p>&copy; 2026 CanchasRed - Paola Franco & Alejandra Ruiz. Todos los derechos reservados.</p>
-</footer> 
+    <p>&copy; 2026 CanchasRed - Paola Franco &amp; Alejandra Ruiz. Todos los derechos reservados.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/validaciones.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/login.js"></script>
 </body>
 </html>
