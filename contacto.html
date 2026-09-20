@@ -1,62 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Contacto - CanchasRed</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Bootstrap + tema -->
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Tu propio CSS -->
+    <link href="css/styles2.css" rel="stylesheet" />
 </head>
-<header class="barra-superior"> 
-    <div class="logo">
-        <span class="icono-balon">⚽</span>
-        <strong class="nombre-sitio">Contacto</strong>
-    </div>
-    <nav class="menu-enlaces">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="blogs.html">Blog</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
+<body id="page-top">
+
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="icono-balon">⚽</span> CanChas
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión / Registrarse</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <div class="accesos-usuario">
-        <a href="login.html" class="enlace-ingreso">Iniciar sesión o Registrarse</a>
-    </div>
-
-</header>
-<body>
-    <main class="contenedor-contacto">
-        <h1>Contacto</h1>
-        <p>¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
-        <form id="formularioContacto" novalidate>
-            <div class="campo-formulario">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-                <span class="mensaje-error" id="errorNombre"></span>
+    <!-- Contacto: formulario completo, estilo oscuro con mapa (viene de styles.css) -->
+    <section class="page-section" id="contact" style="padding-top: 10rem;">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Contáctanos</h2>
+                <h3 class="section-subheading text-muted">Escríbenos y te responderemos a la brevedad.</h3>
             </div>
-            <div class="campo-formulario">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="tucorreo@dgmail.com" required>
-                <span class="mensaje-error" id="errorEmail"></span>
-            </div>
-            <div class="campo-formulario">
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-                <span class="mensaje-error" id="errorMensaje"></span>
-            </div>
-            <button type="submit">Enviar</button>
-        </form>
-    </main>
-    
-    <footer class="pie-pagina">
-        <!-- Texto con autoras del encargo DSY1104 Duoc UC -->
-        <p class="texto-creditos">&copy; 2026 CanchasRed - Paola Franco & Alejandra Ruiz. Todos los derechos reservados.</p>
-
-        <!-- Repetición de enlaces secundarios requeridos por pauta -->
-        <div class="enlaces-secundarios">
-        <a href="nosotros.html">Nosotros</a>
-        <a href="contacto.html">Contacto</a>
+            <form id="contactForm" class="form-validar" novalidate>
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="name" type="text" placeholder="Nombre *" data-required="true" />
+                            <div class="invalid-feedback">Ingresa tu nombre.</div>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="email" type="email" placeholder="Email *" data-required="true" data-type="email" />
+                            <div class="invalid-feedback">Ingresa un email válido.</div>
+                        </div>
+                        <div class="form-group mb-md-0">
+                            <input class="form-control" id="phone" type="tel" placeholder="Teléfono *" data-required="true" />
+                            <div class="invalid-feedback">Ingresa tu teléfono.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <textarea class="form-control" id="message" placeholder="Mensaje *" data-required="true"></textarea>
+                            <div class="invalid-feedback">Escribe tu mensaje.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-none" id="submitSuccessMessage">
+                    <div class="text-center text-white mb-3 fw-bolder">¡Mensaje enviado con éxito!</div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Enviar Mensaje</button>
+                </div>
+            </form>
         </div>
-    </footer>    
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">Copyright &copy; CanchasRed 2024</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="index.html" class="link-dark text-decoration-none me-3">Inicio</a>
+                    <a href="nosotros.html" class="link-dark text-decoration-none me-3">Nosotros</a>
+                    <a href="contacto.html" class="link-dark text-decoration-none me-3">Contacto</a>
+                    <a href="blogs.html" class="link-dark text-decoration-none me-3">Blog</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- Tu propio JS -->
+    <script src="js/validaciones.js"></script>
 </body>
 </html>
