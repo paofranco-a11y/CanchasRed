@@ -45,9 +45,9 @@
             <div class="masthead-heading text-uppercase">Encuentra tu Cancha</div>
             <p class="masthead-subheading">Descubre las mejores canchas de deporte en tu área.</p>
 
-             <!-- Buscador -->
+            <!-- Buscador -->
             <div class="caja-busqueda">
-                <input type="text" class="form-control" placeholder="Buscar canchas por ubicación o deporte" />
+                <input type="text" class="form-control" id="buscadorCanchas" placeholder="Buscar canchas por ubicación o deporte" />
             </div>
         </div>
     </header>
@@ -55,44 +55,84 @@
     <!--  Bootstrap (btn, btn-outline-primary)-->
     <nav class="barra-filtros text-center py-3" aria-label="Filtros por deporte">
         <div class="container">
-            <button type="button" class="btn btn-primary me-2 mb-2">Todos</button>
-            <button type="button" class="btn btn-outline-primary me-2 mb-2">Fútbol</button>
-            <button type="button" class="btn btn-outline-primary me-2 mb-2">Tenis</button>
-            <button type="button" class="btn btn-outline-primary me-2 mb-2">Basquetbol</button>
-            <button type="button" class="btn btn-outline-primary me-2 mb-2">Vóleibol</button>
-            <button type="button" class="btn btn-outline-primary mb-2">Pádel</button>
+            <button type="button" class="btn btn-primary me-2 mb-2 btn-filtro" data-filtro="todos">Todos</button>
+            <button type="button" class="btn btn-outline-primary me-2 mb-2 btn-filtro" data-filtro="fútbol">Fútbol</button>
+            <button type="button" class="btn btn-outline-primary me-2 mb-2 btn-filtro" data-filtro="tenis">Tenis</button>
+            <button type="button" class="btn btn-outline-primary me-2 mb-2 btn-filtro" data-filtro="basquetbol">Basquetbol</button>
+            <button type="button" class="btn btn-outline-primary me-2 mb-2 btn-filtro" data-filtro="vóleibol">Vóleibol</button>
+            <button type="button" class="btn btn-outline-primary mb-2 btn-filtro" data-filtro="pádel">Pádel</button>
         </div>
     </nav>
 
     <!-- Catalogo  -->
-    <main class="page-section" id="catalogo">
-        <div class="container">
-            <p class="contador-canchas">Cancha disponible</p>
-            <div class="row">
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <article class="card tarjeta-cancha h-100">
-                        <div class="tarjeta-foto-bloque">
-                            <span class="badge bg-success etiqueta-deporte">Tenis</span>
-                            <img src="assets/img/portfolio/canchaTenis.png" alt="Foto de Cancha Central Norte" class="card-img-top imagen-cancha"/>
-                        </div>
-                        <div class="card-body tarjeta-informacion">
-                            <h2 class="card-title nombre-cancha h5">Cancha Central Norte</h2>
-                            <p class="comuna-cancha text-muted">Ñuñoa</p>
-                            <p class="card-text descripcion-cancha">
-                                Cancha de pasto sintético con iluminación nocturna. Capacidad para 10 personas.
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="precio-hora"><strong>$7.000</strong> /hora</span>
-                                <a href="detalle-cancha.html" class="btn btn-primary btn-sm">Reservar</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <!-- Repite este bloque col-lg-4 por cada cancha adicional -->
-            </div>
-        </div>
-    </main>
+<main class="page-section" id="catalogo">
+    <div class="container">
+        <p class="contador-canchas">Cancha disponible</p>
+        <div class="row" id="contenedorCanchas">
 
+            <div class="col-lg-4 col-sm-6 mb-4 item-cancha" data-nombre="Cancha Central Norte" data-comuna="Ñuñoa" data-deporte="tenis">
+                <article class="card tarjeta-cancha h-100">
+                    <div class="tarjeta-foto-bloque">
+                        <span class="badge bg-success etiqueta-deporte">Tenis</span>
+                        <img src="assets/img/portfolio/canchaTenis.png" alt="Foto de Cancha Central Norte" class="card-img-top imagen-cancha"/>
+                    </div>
+                    <div class="card-body tarjeta-informacion">
+                        <h2 class="card-title nombre-cancha h5">Cancha Central Norte</h2>
+                        <p class="comuna-cancha text-muted">Ñuñoa</p>
+                        <p class="card-text descripcion-cancha">
+                            Cancha de pasto sintético con iluminación nocturna. Capacidad para 10 personas.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="precio-hora"><strong>$7.000</strong> /hora</span>
+                            <a href="detalle-cancha.html" class="btn btn-primary btn-sm">Reservar</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-lg-4 col-sm-6 mb-4 item-cancha" data-nombre="Multicancha Barrio Sur" data-comuna="San Miguel" data-deporte="fútbol">
+                <article class="card tarjeta-cancha h-100">
+                    <div class="tarjeta-foto-bloque">
+                        <span class="badge bg-success etiqueta-deporte">Fútbol</span>
+                        <img src="assets/img/portfolio/canchaFutbol.jpg" alt="Foto de Multicancha Barrio Sur" class="card-img-top imagen-cancha"/>
+                    </div>
+                    <div class="card-body tarjeta-informacion">
+                        <h2 class="card-title nombre-cancha h5">Multicancha Barrio Sur</h2>
+                        <p class="comuna-cancha text-muted">San Miguel</p>
+                        <p class="card-text descripcion-cancha">
+                            Cancha de cemento pulido con tableros reglamentarios y graderías.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="precio-hora"><strong>$6.500</strong> /hora</span>
+                            <a href="detalle-cancha.html" class="btn btn-primary btn-sm">Reservar</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-lg-4 col-sm-6 mb-4 item-cancha" data-nombre="Court Providencia" data-comuna="Providencia" data-deporte="basquetbol">
+                <article class="card tarjeta-cancha h-100">
+                    <div class="tarjeta-foto-bloque">
+                        <span class="badge bg-success etiqueta-deporte">Basquetbol</span>
+                        <img src="assets/img/portfolio/canchaBasquet.jpg" alt="Foto de cancha básquetbol" class="card-img-top imagen-cancha"/>
+                    </div>
+                    <div class="card-body tarjeta-informacion">
+                        <h2 class="card-title nombre-cancha h5">Court Providencia</h2>
+                        <p class="comuna-cancha text-muted">Providencia</p>
+                        <p class="card-text descripcion-cancha">
+                            Cancha techada con piso de madera y tableros profesionales.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="precio-hora"><strong>$12.000</strong> /hora</span>
+                            <a href="detalle-cancha.html" class="btn btn-primary btn-sm">Reservar</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </div>
+</main>
 <!-- Mini contacto -->
 <section class="page-section bg-dark text-white" id="mini-contacto">
     <div class="container">
@@ -156,5 +196,6 @@
     <script src="js/validaciones.js"></script>
     <!-- para validar autenticacion -->
     <script src="js/auth.js"></script>
+    <script src="js/buscador.js"></script>
 </body>
 </html>
