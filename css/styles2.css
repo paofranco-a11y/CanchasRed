@@ -223,3 +223,8 @@
   width: 120px;
   margin-right: 0.3rem;
 }
+
+/* pag dueño esto para la letras  */
+.pagina-nav-estatico #mainNav {
+  background-color: #212529 !important;
+}

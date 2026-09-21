@@ -36,3 +36,4 @@ botonesFiltro.forEach(function (boton) {
         aplicarFiltros();
     });
 });
+
