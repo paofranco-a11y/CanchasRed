@@ -35,6 +35,20 @@ form.addEventListener('submit', function (e) {
 
     if (!formularioValido) return;
 
+    // --- Cuenta de administrador  ---
+    const correoIngresado = campoCorreo.value.trim().toLowerCase();
+    const claveIngresada = campoPassword.value.trim();
+
+    const usuarioAdmin = 'usuario_admin@duocuc.cl';
+    const claveAdmin = '123456';
+
+    if (correoIngresado === usuarioAdmin && claveIngresada === claveAdmin) {
+        localStorage.setItem('usuarioLogueado', 'true');
+        localStorage.setItem('rolActivo', 'admin');
+        window.location.href = 'actividad-admin.html';
+        return; 
+    }
+    // -----------------------------------------------------------------
 
     const usuarioGuardado = JSON.parse(localStorage.getItem('usuarioRegistrado'));
 
