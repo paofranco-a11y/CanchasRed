@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analíticas · CanchasRed Admin</title>
+ 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+ 
+  <div class="d-flex">
+ 
+    <!-- ============================= SIDEBAR ============================= -->
+    <nav class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light border-end vh-100 position-sticky top-0" style="width: 260px;">
+      <form class="mb-3" role="search">
+        <input class="form-control" type="search" placeholder="Search..." aria-label="Search">
+      </form>
+ 
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="actividad-admin.html" class="nav-link d-flex align-items-center gap-2 text-dark">
+            <i class="bi bi-house"></i> Resumen
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="usuarios.html" class="nav-link d-flex align-items-center gap-2 text-dark">
+            <i class="bi bi-people"></i> Usuarios
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="analiticas.html" class="nav-link d-flex align-items-center gap-2 text-dark">
+            <i class="bi bi-bar-chart"></i> Analíticas
+          </a>
+        </li>
+      </ul>
+ 
+      <hr>
+ 
+      <div class="d-flex align-items-center">
+        <div>
+          <div class="fw-semibold small">ADMIN</div>
+          <div class="text-muted small">admin@duocuc.cl</div>
+        </div>
+      </div>
+    </nav>
+    <!-- ============================== CONTENT ============================== -->
+    <main class="flex-grow-1 p-4">
+ 
+      <header class="mb-4">
+        <h1 class="h3 mb-0">Analíticas</h1>
+        <p class="text-muted">Métricas de ingresos y actividad de la plataforma.</p>
+      </header>
+ 
+      <!-- Tarjetas de metricas -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="text-uppercase text-muted small mb-1">Ingresos este mes</div>
+              <div class="fs-3 fw-bold">$88.000</div>
+              <div class="text-success small"><i class="bi bi-arrow-up"></i> 25% vs mes anterior</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="text-uppercase text-muted small mb-1">Reservas este mes</div>
+              <div class="fs-3 fw-bold">11</div>
+              <div class="text-success small"><i class="bi bi-arrow-up"></i> 9 vs mes anterior</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="text-uppercase text-muted small mb-1">Ticket promedio</div>
+              <div class="fs-3 fw-bold">$8.000</div>
+              <div class="text-muted small">por reserva</div>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Grafico de ingresos mensuales -->
+      <div class="card mb-4">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+          <span class="fw-semibold">Ingresos mensuales ($)</span>
+          <span class="text-muted small">*valores en miles de pesos (CLP)</span>
+        </div>
+        <div class="card-body">
+          <!--
+            Grafico de barras hecho solo con CSS/Bootstrap como placeholder.
+            Reemplaza este bloque por un <canvas> + Chart.js (u otra libreria)
+            cuando tengas los datos reales conectados.
+          -->
+          <div class="d-flex align-items-end justify-content-between gap-2" style="height: 220px;">
+            <div class="d-flex flex-column align-items-center flex-fill">
+              <div class="bg-secondary-subtle border w-100" style="height: 45%;"></div>
+              <span class="small text-muted mt-2">Ene</span>
+              <span class="small">$26k</span>
+            </div>
+            <div class="d-flex flex-column align-items-center flex-fill">
+              <div class="bg-secondary-subtle border w-100" style="height: 55%;"></div>
+              <span class="small text-muted mt-2">Feb</span>
+              <span class="small">$36k</span>
+            </div>
+            <div class="d-flex flex-column align-items-center flex-fill">
+              <div class="bg-secondary-subtle border w-100" style="height: 40%;"></div>
+              <span class="small text-muted mt-2">Mar</span>
+              <span class="small">$47k</span>
+            </div>
+            <div class="d-flex flex-column align-items-center flex-fill">
+              <div class="bg-secondary-subtle border w-100" style="height: 60%;"></div>
+              <span class="small text-muted mt-2">Abr</span>
+              <span class="small">$54k</span>
+            </div>
+            <div class="d-flex flex-column align-items-center flex-fill">
+              <div class="bg-secondary-subtle border w-100" style="height: 58%;"></div>
+              <span class="small text-muted mt-2">May</span>
+              <span class="small">$53k</span>
+            </div>
+            <div class="d-flex flex-column align-items-center flex-fill">
+              <div class="bg-secondary-subtle border w-100" style="height: 78%;"></div>
+              <span class="small text-muted mt-2">Jun</span>
+              <span class="small">$70k</span>
+            </div>
+            <div class="d-flex flex-column align-items-center flex-fill">
+              <div class="bg-dark w-100" style="height: 88%;"></div>
+              <span class="small text-muted mt-2">Jul</span>
+              <span class="small fw-semibold">$77k</span>
+            </div>
+            <div class="d-flex flex-column align-items-center flex-fill">
+              <div class="bg-secondary-subtle border w-100" style="height: 65%;"></div>
+              <span class="small text-muted mt-2">Ago</span>
+              <span class="small">$61k</span>
+            </div>
+            <div class="d-flex flex-column align-items-center flex-fill">
+              <div class="bg-secondary-subtle border w-100" style="height: 42%;"></div>
+              <span class="small text-muted mt-2">Sep</span>
+              <span class="small">$46k</span>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Top canchas por ingresos -->
+      <div class="card">
+        <div class="card-header bg-white fw-semibold">Top canchas por ingresos</div>
+        <div class="table-responsive">
+          <table class="table align-middle mb-0">
+            <thead>
+              <tr>
+                <th scope="col">Cancha</th>
+                <th scope="col" class="text-end">Reservas</th>
+                <th scope="col" class="text-end">Ingresos</th>
+                <th scope="col" class="text-end">Ocup.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cancha Central Norte</td>
+                <td class="text-end">18</td>
+                <td class="text-end">$144.000</td>
+                <td class="text-end">82%</td>
+              </tr>
+              <tr>
+                <td>Court Tenis Las Flores</td>
+                <td class="text-end">14</td>
+                <td class="text-end">$168.000</td>
+                <td class="text-end">64%</td>
+              </tr>
+              <tr>
+                <td>Multicancha Barrio Sur</td>
+                <td class="text-end">9</td>
+                <td class="text-end">$58.500</td>
+                <td class="text-end">47%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+ 
+    </main>
+  </div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
