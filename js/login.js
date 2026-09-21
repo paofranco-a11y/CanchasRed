@@ -16,6 +16,7 @@ form.addEventListener('submit', function (e) {
     e.preventDefault();
     let formularioValido = true;
 
+
     const errorCorreo = document.getElementById('errorCorreoLogin');
     if (campoCorreo.value.trim() === '') {
         mostrarError(campoCorreo, errorCorreo, 'Ingresa tu correo.');
@@ -33,6 +34,7 @@ form.addEventListener('submit', function (e) {
     }
 
     if (!formularioValido) return;
+
 
     const usuarioGuardado = JSON.parse(localStorage.getItem('usuarioRegistrado'));
 
@@ -56,4 +58,7 @@ form.addEventListener('submit', function (e) {
     } else {
         mostrarError(campoPassword, errorPassword, 'Correo o contraseña incorrectos.');
     }
+
+    
+
 });
