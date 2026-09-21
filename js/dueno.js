@@ -38,16 +38,24 @@ function nuevaCancha() {
     mostrarSeccion('form');
 }
 
-// Leer canchas guardadas
+// Leer solo las canchas del dueño logueado
 function obtenerCanchas() {
-    return JSON.parse(localStorage.getItem('misCanchas')) || [];
+    const todas = JSON.parse(localStorage.getItem('misCanchas')) || [];
+    const usuarioActual = JSON.parse(localStorage.getItem('usuarioRegistrado'));
+    if (!usuarioActual) return [];
+    return todas.filter(c => c.correoDueno === usuarioActual.correo);
 }
 
-function guardarCanchas(canchas) {
-    localStorage.setItem('misCanchas', JSON.stringify(canchas));
+// Guarda las canchas del dueño actual sin borrar las de otros dueños
+function guardarCanchas(canchasDelDueno) {
+    const todas = JSON.parse(localStorage.getItem('misCanchas')) || [];
+    const usuarioActual = JSON.parse(localStorage.getItem('usuarioRegistrado'));
+    const deOtrosDuenos = todas.filter(c => c.correoDueno !== usuarioActual.correo);
+    const actualizadas = deOtrosDuenos.concat(canchasDelDueno);
+    localStorage.setItem('misCanchas', JSON.stringify(actualizadas));
 }
 
-// Dibujar la lista de canchas
+// Dibujar la lista de canchas del dueño
 function renderizarLista() {
     const canchas = obtenerCanchas();
     const contenedor = document.getElementById('listaCanchas');
@@ -64,15 +72,19 @@ function renderizarLista() {
     canchas.forEach(function (c) {
         const estado = c.disponible ? 'Activa' : 'Inactiva';
         const colorEstado = c.disponible ? 'bg-success' : 'bg-secondary';
+        const foto = c.imagen ? `<img src="${c.imagen}" style="width:60px;height:60px;object-fit:cover;border-radius:6px;margin-right:10px;">` : '';
 
         const item = document.createElement('div');
         item.className = 'list-group-item d-flex justify-content-between align-items-center flex-wrap';
         item.innerHTML = `
-            <div>
-                <strong>${c.nombre}</strong><br>
-                <span class="text-muted">${c.deporte}</span>
-                <span class="badge ${colorEstado} ms-2">${estado}</span>
-                <span class="ms-2">$${Number(c.precio).toLocaleString('es-CL')}/hr</span>
+            <div class="d-flex align-items-center">
+                ${foto}
+                <div>
+                    <strong>${c.nombre}</strong><br>
+                    <span class="text-muted">${c.deporte}</span>
+                    <span class="badge ${colorEstado} ms-2">${estado}</span>
+                    <span class="ms-2">$${Number(c.precio).toLocaleString('es-CL')}/hr</span>
+                </div>
             </div>
             <div>
                 <button class="btn btn-outline-dark btn-sm me-2" onclick="editarCancha('${c.id}')">Ver detalle</button>
@@ -83,7 +95,7 @@ function renderizarLista() {
     });
 }
 
-// Editar: precarga el formulario con los datos existentes
+// Precarga el formulario con los datos de una cancha existente
 function editarCancha(id) {
     const canchas = obtenerCanchas();
     const cancha = canchas.find(c => c.id === id);
@@ -105,7 +117,37 @@ function editarCancha(id) {
     mostrarSeccion('form');
 }
 
-// Guardar (crear o actualizar) al enviar el formulario
+// Guarda la cancha (nueva o editada), incluyendo la imagen y el correo del dueño
+function guardarConImagen(imagenBase64) {
+    const canchas = obtenerCanchas();
+    const idExistente = document.getElementById('canchaId').value;
+    const usuarioActual = JSON.parse(localStorage.getItem('usuarioRegistrado'));
+
+    const datosCancha = {
+        id: idExistente || Date.now().toString(),
+        nombre: document.getElementById('nombreCancha').value.trim(),
+        deporte: document.getElementById('deporteCancha').value,
+        comuna: document.getElementById('comunaCancha').value,
+        precio: Number(document.getElementById('precioCancha').value),
+        descripcion: document.getElementById('descripcionCancha').value.trim(),
+        disponible: document.getElementById('disponibleCancha').checked,
+        imagen: imagenBase64 || '',
+        correoDueno: usuarioActual ? usuarioActual.correo : ''
+    };
+
+    if (idExistente) {
+        const indice = canchas.findIndex(c => c.id === idExistente);
+        if (!imagenBase64) datosCancha.imagen = canchas[indice].imagen;
+        canchas[indice] = datosCancha;
+    } else {
+        canchas.push(datosCancha);
+    }
+
+    guardarCanchas(canchas);
+    mostrarSeccion('lista');
+}
+
+// Validar y enviar el formulario
 document.getElementById('formCancha').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -148,33 +190,31 @@ document.getElementById('formCancha').addEventListener('submit', function (e) {
         document.getElementById('comunaCancha').classList.remove('is-invalid');
     }
 
-    if (!valido) return;
+    const archivoImagen = document.getElementById('imagenCancha').files[0];
+    const idExistenteCheck = document.getElementById('canchaId').value;
 
-    const canchas = obtenerCanchas();
-    const idExistente = document.getElementById('canchaId').value;
-
-    const datosCancha = {
-        id: idExistente || Date.now().toString(),
-        nombre: document.getElementById('nombreCancha').value.trim(),
-        deporte: document.getElementById('deporteCancha').value,
-        comuna: document.getElementById('comunaCancha').value,
-        precio: precio,
-        descripcion: descripcion,
-        disponible: document.getElementById('disponibleCancha').checked
-    };
-
-    if (idExistente) {
-        const indice = canchas.findIndex(c => c.id === idExistente);
-        canchas[indice] = datosCancha;
+    // La imagen es obligatoria solo al crear (al editar, puede conservar la anterior)
+    if (!archivoImagen && !idExistenteCheck) {
+        document.getElementById('imagenCancha').classList.add('is-invalid');
+        valido = false;
     } else {
-        canchas.push(datosCancha);
+        document.getElementById('imagenCancha').classList.remove('is-invalid');
     }
 
-    guardarCanchas(canchas);
-    mostrarSeccion('lista');
+    if (!valido) return;
+
+    if (archivoImagen) {
+        const lector = new FileReader();
+        lector.onload = function () {
+            guardarConImagen(lector.result);
+        };
+        lector.readAsDataURL(archivoImagen);
+    } else {
+        guardarConImagen(null);
+    }
 });
 
-// Eliminar
+// Eliminar cancha
 let idAEliminar = null;
 
 function abrirEliminar(id) {
@@ -199,6 +239,18 @@ document.getElementById('btnConfirmarEliminar').addEventListener('click', functi
 
     renderizarLista();
 });
+
+function mostrarResumen() {
+    const canchas = obtenerCanchas();
+    const activas = canchas.filter(c => c.disponible).length;
+    const usuario = JSON.parse(localStorage.getItem('usuarioRegistrado'));
+
+    document.getElementById('resumenTotal').textContent = canchas.length;
+    document.getElementById('resumenActivas').textContent = activas;
+    document.getElementById('resumenCorreo').textContent = usuario ? usuario.correo : '-';
+}
+
+mostrarResumen();
 
 // Al cargar la página, muestra la lista
 renderizarLista();
