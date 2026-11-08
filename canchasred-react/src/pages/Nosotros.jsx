@@ -1,4 +1,3 @@
-// import: traemos componentes compartidos (NavBar y Footer) y las fotos para la historia y el equipo
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import img1 from '../assets/img/about/1.jpg';
@@ -8,7 +7,7 @@ import equipo1 from '../assets/img/portfolio/ImgNosotros1.jpg';
 import equipo3 from '../assets/img/portfolio/ImgNosotros3.jpg';
 import equipo4 from '../assets/img/portfolio/ImgNosotros4.jpg';
 
-// Arreglo de hitos históricos; los guardamos en una lista de objetos para dibujarlos con .map sin repetir HTML
+// Hitos de la línea de tiempo
 const HITOS = [
   {
     cifra: '+40', imagen: img1,
@@ -27,14 +26,13 @@ const HITOS = [
   },
 ];
 
-// Lista con las integrantes del equipo para mostrarlas en tarjetas con su foto, cargo y redes
+// Integrantes del equipo
 const EQUIPO = [
   { nombre: 'Analistas de mercado', cargo: 'Diseño y Marketing', imagen: equipo1, alt: 'Foto de la cancha Central Norte' },
   { nombre: 'Paola Franco', cargo: 'Programadora Web', imagen: equipo4, alt: '...' },
   { nombre: 'Alejandra Ruiz', cargo: 'Analista de Datos', imagen: equipo3, alt: '...' },
 ];
 
-// Componente de página que muestra la historia, logros y el equipo de CanchasRed
 function Nosotros() {
   return (
     <>
@@ -66,7 +64,6 @@ function Nosotros() {
             <h2 className="section-heading text-uppercase">Conectando la pasión del deporte con la tecnología en todo Chile</h2><br />
           </div>
           <ul className="timeline">
-            {/* .map: recorre la lista de hitos y usa el índice (i % 2 === 1) para alternar las fotos entre izquierda y derecha */}
             {HITOS.map((h, i) => (
               <li key={h.cifra} className={i % 2 === 1 ? 'timeline-inverted' : ''}>
                 <div className="timeline-image"><img className="rounded-circle img-fluid" src={h.imagen} alt="..." /></div>
@@ -96,7 +93,6 @@ function Nosotros() {
               <h3 className="section-subheading text-muted">Un equipo que da todo por el éxito de nuestros clientes.</h3>
             </div>
             <div className="row">
-              {/* .map: transforma cada integrante en una columna responsiva de Bootstrap con su información y redes sociales */}
               {EQUIPO.map((p) => (
                 <div key={p.nombre} className="col-lg-4">
                   <div className="team-member">
@@ -124,5 +120,4 @@ function Nosotros() {
   );
 }
 
-// export default: permite que el router de la aplicación (App.jsx) cargue esta página al visitar /nosotros
 export default Nosotros;

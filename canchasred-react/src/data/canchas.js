@@ -1,18 +1,15 @@
-// import: trae fotos locales para que Vite las reconozca y las incluya optimizadas en el empaquetado final
 import canchaTenis from '../assets/img/portfolio/canchaTenis.png';
 import canchaFutbol from '../assets/img/portfolio/canchaFutbol.jpg';
 import canchaBasquet from '../assets/img/portfolio/canchaBasquet.jpg';
 
-// export: permite que otros archivos importen esta lista para llenar los selectores y botones de filtro
 export const DEPORTES = ['Fútbol', 'Tenis', 'Basquetbol', 'Vóleibol', 'Pádel'];
 
-// Lista de comunas disponibles para no escribirlas repetidas en el formulario de publicación
 export const COMUNAS = ['Ñuñoa', 'Providencia', 'San Miguel', 'Las Condes', 'La Florida'];
 
-// Foto por defecto para mostrar algo bonito si una cancha no trae su propia imagen
+// Imagen por defecto cuando una cancha no tiene foto
 export const IMAGEN_POR_DEFECTO = canchaTenis;
 
-// Canchas de ejemplo iniciales que siempre están en el catálogo para que la página nunca empiece vacía
+// Canchas estáticas: siempre visibles y no editables
 export const CANCHAS_ESTATICAS = [
   {
     id: 'est-1',

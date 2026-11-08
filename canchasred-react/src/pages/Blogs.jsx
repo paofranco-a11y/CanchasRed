@@ -1,15 +1,12 @@
-// import: traemos componentes compartidos (NavBar y Footer) y las fotos para los artículos del blog
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import imgBlog1 from '../assets/img/ImgBlog1.jpg';
 import imgBlog2 from '../assets/img/ImgBlog2.jpg';
 import imgBlog4 from '../assets/img/ImgBlog4.jpg';
 
-// Página informativa con artículos sobre los beneficios de digitalizar reservas y casos de éxito de recintos
 function Blogs() {
   return (
     <>
-      {/* Pasamos solido para que el menú tenga fondo oscuro fijo, porque esta página no tiene foto hero */}
       <NavBar solido />
       <main className="contenedor-detalle-articulo" style={{ paddingTop: '8rem' }}>
         <div className="container">
@@ -64,5 +61,4 @@ function Blogs() {
   );
 }
 
-// export default: exporta la página para que las rutas en App.jsx puedan mostrarla cuando entramos a /blogs
 export default Blogs;
