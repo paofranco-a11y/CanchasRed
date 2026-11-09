@@ -1,0 +1,18 @@
+/* Estilos del panel de administración */
+
+/* Clase de Bootstrap 5.3 que no trae styles.css */
+.bg-secondary-subtle {
+  background-color: #e2e3e5 !important;
+}
+
+/* Barra lateral: ancho fijo y alto completo en escritorio; arriba y a todo el ancho en móvil */
+.sidebar {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    width: 260px;
+    height: 100vh;
+  }
+}

@@ -1,8 +1,7 @@
-// import: traemos Link de react-router-dom para navegar sin recargar la página y una función para dar formato al precio
 import { Link } from 'react-router-dom';
 import { formatearPrecio } from '../utils/validators';
 
-// props: datos que el componente padre (Home) le pasa al hijo (CanchaCard); aquí recibimos la cancha para mostrarla
+// Tarjeta de una cancha. Recibe la cancha por props.
 function CanchaCard({ cancha }) {
   return (
     <div className="col-lg-4 col-sm-6 mb-4 item-cancha">
@@ -16,9 +15,7 @@ function CanchaCard({ cancha }) {
           <p className="comuna-cancha text-muted">{cancha.comuna}</p>
           <p className="card-text descripcion-cancha">{cancha.descripcion}</p>
           <div className="d-flex justify-content-between align-items-center">
-            {/* Convierte el número (ej: 7000) a texto chileno ("$7.000") para que se vea ordenado */}
             <span className="precio-hora"><strong>{formatearPrecio(cancha.precio)}</strong> /hora</span>
-            {/* Link cambia la URL en el navegador sin recargar toda la página web como haría un <a> común */}
             <Link to={`/cancha/${cancha.id}`} className="btn btn-primary btn-sm">Ver Detalle</Link>
           </div>
         </div>
@@ -27,5 +24,4 @@ function CanchaCard({ cancha }) {
   );
 }
 
-// export default: comparte este componente para que otros archivos (como Home.jsx) lo puedan importar y usar
 export default CanchaCard;
