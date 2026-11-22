@@ -1,0 +1,5 @@
+{
+  "plugins": ["react", "vitest"],
+  "env": { "browser": true, "es2022": true },
+  "ignorePatterns": ["dist", "coverage", "node_modules"]
+}
