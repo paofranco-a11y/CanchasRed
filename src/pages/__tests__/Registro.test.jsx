@@ -1,7 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { screen, fireEvent, waitFor } from '@testing-library/react';
 import { renderConProveedores } from '../../components/__tests__/renderConProveedores';
-import { leer } from '../../utils/storage';
 import Registro from '../Registro';
 
 const { navegarMock } = vi.hoisted(() => ({ navegarMock: vi.fn() }));
@@ -30,16 +29,16 @@ describe('Registro', () => {
     renderConProveedores(<Registro />);
     llenar('dep@mail.com', '123456', '654321');
     expect(screen.getByText('Las contraseñas no coinciden.')).toBeInTheDocument();
-    expect(leer('usuarios', [])).toHaveLength(0);
+    expect(localStorage.getItem('usuarios')).toBeNull();
     expect(navegarMock).not.toHaveBeenCalled();
   });
 
-  it('con datos válidos guarda el usuario con su rol y navega a /login', async () => {
+  it('con datos válidos registra el usuario en la API (sin guardar clave en localStorage) y navega a /login', async () => {
     renderConProveedores(<Registro />);
     fireEvent.click(screen.getByLabelText(/Deportista/));
     llenar('dep@mail.com', '123456', '123456');
     await waitFor(() => expect(navegarMock).toHaveBeenCalledWith('/login'));
-    expect(leer('usuarios', [])).toEqual([{ correo: 'dep@mail.com', clave: '123456', rol: 'deportista' }]);
+    expect(localStorage.getItem('usuarios')).toBeNull();
     expect(window.alert).toHaveBeenCalledWith('Cuenta creada correctamente. Ahora inicia sesión.');
   });
 });

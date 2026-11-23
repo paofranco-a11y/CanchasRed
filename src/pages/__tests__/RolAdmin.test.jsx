@@ -53,11 +53,12 @@ describe('Rol admin', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Iniciar sesión' }));
   };
 
-  it('Login: la cuenta admin guarda la sesión y navega a /actividad-admin', async () => {
+  it('Login: la cuenta admin guarda la sesión con JWT y navega a /actividad-admin', async () => {
     renderConProveedores(<Login />);
     iniciarSesion('usuario_admin@duocuc.cl', '123456');
     await waitFor(() => expect(navegarMock).toHaveBeenCalledWith('/actividad-admin'));
-    expect(leer('sesion', null)).toEqual(sesionAdmin);
+    expect(leer('sesion', null)).toMatchObject(sesionAdmin);
+    expect(leer('sesion', null).token).toBeTruthy();
   });
 
   it('Login: clave incorrecta del admin muestra el error y no guarda sesión', async () => {
@@ -74,7 +75,7 @@ describe('Rol admin', () => {
     fireEvent.change(screen.getByLabelText('Confirmar contraseña'), { target: { value: '123456' } });
     fireEvent.click(screen.getByRole('button', { name: 'Crear cuenta' }));
     await waitFor(() => expect(screen.getByText('Este correo ya está registrado.')).toBeInTheDocument());
-    expect(leer('usuarios', [])).toHaveLength(0);
+    expect(localStorage.getItem('usuarios')).toBeNull();
   });
 
   it('ProtectedRoute: un deportista no entra a una ruta de admin', () => {
