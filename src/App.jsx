@@ -1,85 +1,46 @@
-import { useState, useEffect } from 'react';
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { Catalogo } from './components/Catalogo';
-import { Formulario } from './components/Formulario';
-import { Footer } from './components/Footer';
-import { AuthModal } from './components/AuthModal';
-import { PanelRol } from './components/PanelRol';
-import { AdminDashboard } from './components/AdminDashboard';
-import { authService } from './services/api';
-import './css/styles.css';
-import './css/style2.css';
+import { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import Home from './pages/Home';
+import Nosotros from './pages/Nosotros';
+import Blogs from './pages/Blogs';
+import Contacto from './pages/Contacto';
+import Login from './pages/Login';
+import Registro from './pages/Registro';
+import DetalleCancha from './pages/DetalleCancha';
+import MisReservas from './pages/MisReservas';
+import PerfilDueno from './pages/PerfilDueno';
+import ActividadAdmin from './pages/ActividadAdmin';
+import Usuarios from './pages/Usuarios';
+import Analiticas from './pages/Analiticas';
+import NotFound from './pages/NotFound';
 
-export default function App() {
-  const [usuario, setUsuario] = useState(null);
-  const [mostrarAuth, setMostrarAuth] = useState(false);
-  const [vistaActual, setVistaActual] = useState('inicio'); // 'inicio' | 'panel'
-  const [recargarCanchas, setRecargarCanchas] = useState(0);
+function App() {
+  const { pathname } = useLocation();
 
-  useEffect(() => {
-    const sesionGuardada = authService.getUsuarioActual();
-    if (sesionGuardada) setUsuario(sesionGuardada);
-  }, []);
-
-  const handleCerrarSesion = () => {
-    authService.logout();
-    setUsuario(null);
-    setVistaActual('inicio');
-  };
-
-  // Vista exclusiva del Administrador con Sidebar
-  if (vistaActual === 'panel' && usuario?.rol === 'admin') {
-    return (
-      <AdminDashboard
-        usuario={usuario}
-        onVolverCatalogo={() => setVistaActual('inicio')}
-        onCerrarSesion={handleCerrarSesion}
-      />
-    );
-  }
+  // Al cambiar de página volvemos arriba
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
 
   return (
-    <div id="page-top" className={mostrarAuth || vistaActual === 'panel' ? 'pagina-nav-estatico' : ''}>
-      <Navbar
-        usuario={usuario}
-        onAbrirAuth={() => setMostrarAuth(true)}
-        onCerrarSesion={handleCerrarSesion}
-        vistaActual={vistaActual}
-        setVistaActual={(vista) => {
-          setMostrarAuth(false);
-          setVistaActual(vista);
-        }}
-      />
-
-      {mostrarAuth ? (
-        <AuthModal
-          visible={mostrarAuth}
-          onCerrar={() => setMostrarAuth(false)}
-          onLoginExitoso={(datosUsuario) => {
-            setUsuario(datosUsuario);
-            setMostrarAuth(false);
-            if (datosUsuario.rol === 'admin') setVistaActual('panel');
-          }}
-        />
-      ) : vistaActual === 'panel' && usuario ? (
-        <PanelRol
-          usuario={usuario}
-          onCanchaCreada={() => setRecargarCanchas((prev) => prev + 1)}
-        />
-      ) : (
-        <>
-          <Hero />
-          <Catalogo
-            usuario={usuario}
-            onAbrirAuth={() => setMostrarAuth(true)}
-            recargarTrigger={recargarCanchas}
-          />
-          <Formulario />
-        </>
-      )}
-
-      <Footer />
-    </div>
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/nosotros" element={<Nosotros />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registro" element={<Registro />} />
+        <Route path="/cancha/:id" element={<DetalleCancha />} />
+        <Route path="/mis-reservas" element={<ProtectedRoute rol="deportista"><MisReservas /></ProtectedRoute>} />
+        <Route path="/perfil-dueno" element={<ProtectedRoute rol="dueno"><PerfilDueno /></ProtectedRoute>} />
+        <Route path="/actividad-admin" element={<ProtectedRoute rol="admin"><ActividadAdmin /></ProtectedRoute>} />
+        <Route path="/usuarios" element={<ProtectedRoute rol="admin"><Usuarios /></ProtectedRoute>} />
+        <Route path="/analiticas" element={<ProtectedRoute rol="admin"><Analiticas /></ProtectedRoute>} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </AuthProvider>
   );
 }
+
+export default App;
